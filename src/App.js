@@ -8,7 +8,6 @@ const App = () => {
     <div className="app">
       <HeaderContainer />
       <CardContainer />
-      <CardContainer />
     </div>
   );
 };
