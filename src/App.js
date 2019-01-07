@@ -5,13 +5,23 @@ import CardContainer from './components/CardComponents/CardContainer.js'
 import Footer from './components/FooterComponents/Footer.js'
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       likes: 0,
       retweets: 0
     }
   }
+
+  componentDidMount() {
+    if (localStorage.getItem('state')) {
+      this.setState(JSON.parse(localStorage.getItem('state')));
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('state', JSON.stringify(this.state))
+}
 
   handleLike = () => {
     this.setState({
